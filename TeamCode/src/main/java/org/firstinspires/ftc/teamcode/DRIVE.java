@@ -20,7 +20,7 @@ public class DRIVE extends LinearOpMode {
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        DcMotor turret1 =hardwareMap.dcMotor.get("turret1");
+        DcMotor turret1 = hardwareMap.dcMotor.get("turret1"); // You gotta make sure this is in ur robot config
 
 
         waitForStart();
@@ -38,12 +38,11 @@ public class DRIVE extends LinearOpMode {
             double rearLeftPower = (y + x - rx) / denominator;
             double frontLeftPower = (y - x - rx) / denominator;
 
-            turret1.setPower(t);
-
             frontRight.setPower(frontRightPower);
             backRight.setPower(rearRightPower);
             backLeft.setPower(rearLeftPower);
             frontLeft.setPower(frontLeftPower);
+            turret1.setPower(t);
         }
     }
 }
