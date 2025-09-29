@@ -20,15 +20,15 @@ public class DRIVE extends LinearOpMode {
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-//        DcMotor turret1 =hardwareMap.dcMotor.get("turret1");
-//        DcMotor turret2 =hardwareMap.dcMotor.get("turret2");
+        DcMotor turret1 =hardwareMap.dcMotor.get("turret1");
+
 
         waitForStart();
 
         while (opModeIsActive()) {
             // action area
             double x = gamepad1.left_stick_x;
-            double y = gamepad1.left_stick_y;
+            double y = -gamepad1.left_stick_y;
             double rx = gamepad1.right_stick_x;
             double t = gamepad1.right_trigger;
 
@@ -38,8 +38,7 @@ public class DRIVE extends LinearOpMode {
             double rearLeftPower = (y + x - rx) / denominator;
             double frontLeftPower = (y - x - rx) / denominator;
 
-            //turret1.setPower(t);
-            //turret2.setPower(t);
+            turret1.setPower(t);
 
             frontRight.setPower(frontRightPower);
             backRight.setPower(rearRightPower);

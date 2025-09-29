@@ -35,14 +35,13 @@ public class auto extends LinearOpMode {
         stopDrivetrain(frontLeft, backLeft, frontRight, backRight);
         rotateDrivetrainLeft(frontLeft, backLeft, frontRight, backRight, 0.5, 1000);
         stopDrivetrain(frontLeft, backLeft, frontRight, backRight);
-
     }
 
     private void moveDrivetrain(DcMotor frontLeft, DcMotor backLeft, DcMotor frontRight, DcMotor backRight, double power, int duration) throws InterruptedException {
-        frontLeft.setPower(power);
-        backLeft.setPower(power);
-        frontRight.setPower(power);
-        backRight.setPower(power);
+        frontLeft.setPower(-power);
+        backLeft.setPower(-power);
+        frontRight.setPower(-power);
+        backRight.setPower(-power);
         sleep(duration);
     }
 
