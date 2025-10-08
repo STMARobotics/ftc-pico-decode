@@ -31,9 +31,9 @@ public class auto extends LinearOpMode {
 
 
         //stuff i think
-        moveDrivetrain(frontLeft, backLeft, frontRight, backRight, 0.5, 1000);
+        moveDrivetrain(frontLeft, backLeft, frontRight, backRight, 0.7,1500);
         stopDrivetrain(frontLeft, backLeft, frontRight, backRight);
-        rotateDrivetrainLeft(frontLeft, backLeft, frontRight, backRight, 0.5, 1000);
+        rotateDrivetrainLeft(frontLeft, backLeft, frontRight, backRight, 0.7, 300);
         stopDrivetrain(frontLeft, backLeft, frontRight, backRight);
     }
 
@@ -52,21 +52,12 @@ public class auto extends LinearOpMode {
         backRight.setPower(0);
     }
 
-    private void rotateDrivetrainLeft(DcMotor frontLeft, DcMotor backLeft, DcMotor frontRight, DcMotor backRight, double power, int duration) throws InterruptedException {
+    private void rotateDrivetrainLeft(DcMotor frontLeft, DcMotor backLeft, DcMotor frontRight, DcMotor backRight, double power, int duration)  {
         frontLeft.setPower(-power);
         backLeft.setPower(-power);
         frontRight.setPower(power);
         backRight.setPower(power);
         sleep(duration);
-    }
-
-    private void rotateDrivetrainRight(DcMotor frontLeft, DcMotor backLeft, DcMotor frontRight, DcMotor backRight, double power, int duration) throws InterruptedException {
-        frontLeft.setPower(power);
-        backLeft.setPower(power);
-        frontRight.setPower(-power);
-        backRight.setPower(-power);
-        sleep(duration);
-
     }
 
 
