@@ -17,11 +17,11 @@ public class DRIVE extends LinearOpMode {
         DcMotor backRight = hardwareMap.dcMotor.get("backRight");
         DcMotor backLeft = hardwareMap.dcMotor.get("backLeft");
         DcMotor frontLeft = hardwareMap.dcMotor.get("frontLeft");
+        DcMotor turret1 = hardwareMap.dcMotor.get("turret1");
+
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        //DcMotor turret1 =hardwareMap.dcMotor.get("turret1"); //this is what shoots the balls
-
 
         waitForStart();
 
@@ -32,14 +32,17 @@ public class DRIVE extends LinearOpMode {
             double rx = gamepad1.right_stick_x;
             double t = gamepad1.right_trigger;
 
+            // Math for drivetrain (IGNORE)
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
             double frontRightPower = (y + x + rx) / denominator;
             double rearRightPower = (y - x + rx) / denominator;
             double rearLeftPower = (y + x - rx) / denominator;
             double frontLeftPower = (y - x - rx) / denominator;
 
-            //turret1.setPower(t);
+            // This is telling the motor to run at whatever T is (we set T to the controllers right trigger earlier)
+            turret1.setPower(t);
 
+            // Telling the motors to go at a certain power
             frontRight.setPower(frontRightPower);
             backRight.setPower(rearRightPower);
             backLeft.setPower(rearLeftPower);
