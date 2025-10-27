@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import org.firstinspires.ftc.teamcode.ShooterSubsystem;
 
-@TeleOp(name = "Main Drive (USE THIS ONE)")
-public class DRIVE extends LinearOpMode {
+@TeleOp(name = "bakcup (BAREBONES)")
+public class backup extends LinearOpMode {
     // variables
 
     @Override
@@ -17,6 +17,7 @@ public class DRIVE extends LinearOpMode {
         DcMotor backRight = hardwareMap.dcMotor.get("backRight");
         DcMotor backLeft = hardwareMap.dcMotor.get("backLeft");
         DcMotor frontLeft = hardwareMap.dcMotor.get("frontLeft");
+        DcMotor turret1 = hardwareMap.dcMotor.get("turret1");
 
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -28,7 +29,7 @@ public class DRIVE extends LinearOpMode {
 
         while (opModeIsActive()) {
             // action area
-            double x = gamepad1.left_stick_x;
+            double x = -gamepad1.left_stick_x;
             double y = -gamepad1.left_stick_y;
             double rx = gamepad1.right_stick_x;
             double t = gamepad1.right_trigger;
@@ -41,11 +42,7 @@ public class DRIVE extends LinearOpMode {
             double rearLeftPower = (y + x - rx) / denominator;
             double frontLeftPower = (y - x - rx) / denominator;
 
-            // This is telling the motor to run at whatever T is (we set T to the controllers right trigger earlier)
-            if (gamepad1.a) {shooterSubsystem.shoot();}
-            if (gamepad1.b) {shooterSubsystem.reverse();}
-            if (gamepad1.x) {shooterSubsystem.stop();}
-            if (gamepad1.y) {shooterSubsystem.
+            turret1.setPower(t);
 
             // Telling the motors to go at a certain power
             frontRight.setPower(frontRightPower);

@@ -31,6 +31,7 @@ public class auto extends LinearOpMode {
 
 
         //stuff i think
+        //that's not very reassuring
         moveDrivetrain(frontLeft, backLeft, frontRight, backRight, 0.7,1500);
         stopDrivetrain(frontLeft, backLeft, frontRight, backRight);
         rotateDrivetrainLeft(frontLeft, backLeft, frontRight, backRight, 0.7, 300);

@@ -23,6 +23,11 @@ android {
     }
 }
 
+repositories {
+    maven { url 'https://repo.dairy.foundation/snapshots' } // solverslib
+}
+
 dependencies {
     implementation project(':FtcRobotController')
+    implementation "org.solverslib:core:SNAPSHOT-3e6a22e"
 }
